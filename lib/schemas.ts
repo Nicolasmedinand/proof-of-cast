@@ -1,0 +1,1 @@
+import { z } from 'zod'; export const fidParamSchema=z.object({fid:z.string().regex(/^\d+$/)}); export const mintBodySchema=z.object({fid:z.number().int().positive(),address:z.string().regex(/^0x[0-9a-fA-F]{40}$/)}); export const leaderboardQuerySchema=z.object({period:z.enum(['7d','30d']).default('30d'),page:z.string().optional(),size:z.string().optional(),});

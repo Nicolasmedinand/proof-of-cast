@@ -1,0 +1,7 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
+model User{ id String @id @default(cuid()) fid Int @unique username String address String? score Float @default(0) level Int @default(0) lastSyncAt DateTime? createdAt DateTime @default(now()) updatedAt DateTime @updatedAt interactions Interaction[] badges BadgeMint[] }
+model Interaction{ id String @id @default(cuid()) fid Int targetCast String type InteractionType weight Float timestamp DateTime user User @relation(fields:[fid],references:[fid]) @@index([fid]) @@index([targetCast]) }
+enum InteractionType { LIKE RECAST REPLY }
+model BadgeMint{ id String @id @default(cuid()) fid Int level Int txHash String mintedAt DateTime @default(now()) user User @relation(fields:[fid],references:[fid]) }
+model ScoreHistory{ id String @id @default(cuid()) fid Int score Float computedAt DateTime @default(now()) @@index([fid]) }

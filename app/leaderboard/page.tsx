@@ -1,0 +1,1 @@
+export default function Leaderboard(){return(<main className='p-8 max-w-4xl mx-auto'><h1 className='text-2xl font-semibold'>Leaderboard</h1></main>)}

@@ -1,0 +1,1 @@
+export default function Page(){return(<main className='p-8 max-w-3xl mx-auto'><h1 className='text-4xl font-bold'>Proof of Cast</h1><p className='mt-2 text-slate-300'>On-chain reputation for Farcaster.</p></main>)}
